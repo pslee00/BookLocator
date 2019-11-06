@@ -1,0 +1,234 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity"
+    android:background="#FFF">
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:paddingTop="0dp"
+        android:paddingBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/iconnew"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:background="#FFF"
+        android:layout_below="@+id/Logo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/MenuCat1"
+                android:text="@string/MenuCategory1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:background="#8DC73F"
+                android:layout_below="@+id/scrollView1"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator0"
+                android:layout_below="@+id/MenuCat1"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu1"
+                android:text="@string/TitleMenu1"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator1"
+                android:layout_below="@+id/btnMenu1"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu2"
+                android:text="@string/TitleMenu2"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator2"
+                android:layout_below="@+id/btnMenu2"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu3"
+                android:text="@string/TitleMenu3"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator3"
+                android:layout_below="@+id/btnMenu3"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu4"
+                android:text="@string/TitleMenu4"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator4"
+                android:layout_below="@+id/btnMenu4"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <TextView
+                android:id="@+id/MenuCat2"
+                android:text="@string/MenuCategory2"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:background="#8DC73F"
+                android:layout_below="@+id/Separator4"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator01"
+                android:layout_below="@+id/MenuCat2"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu5"
+                android:text="@string/TitleMenu5"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator5"
+                android:layout_below="@+id/btnMenu5"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu6"
+                android:text="@string/TitleMenu6"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator5"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator6"
+                android:layout_below="@+id/btnMenu6"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu7"
+                android:text="@string/TitleMenu7"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator6"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+            android:id="@+id/Separator7"
+            android:layout_below="@+id/btnMenu7"
+            android:layout_width="fill_parent"
+            android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu8"
+                android:text="@string/TitleMenu8"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator7"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator8"
+                android:layout_below="@+id/btnMenu8"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu9"
+                android:text="@string/TitleMenu9"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator8"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator9"
+                android:layout_below="@+id/btnMenu9"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu10"
+                android:text="@string/TitleMenu10"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator9"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ragfilsc.booklocator.stdViewBook">
+
+    <item
+        android:id="@+id/reserve"
+        android:title=""
+        android:icon="@drawable/reserve"
+        app:showAsAction="always" />
+
+</menu>

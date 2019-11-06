@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ragfilsc.booklocator.std_histroy">
+
+    <item
+        android:id="@+id/Delete"
+        android:title=""
+        android:icon="@drawable/delete"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/Refresh"
+        android:title=""
+        android:icon="@drawable/refresh"
+        app:showAsAction="always" />
+</menu>

@@ -1,0 +1,24 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ragfilsc.booklocator.std_reservation">
+
+    <item
+        android:id="@+id/view"
+        android:title=""
+        android:icon="@drawable/view"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/reserve"
+        android:title=""
+        android:icon="@drawable/reserve"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/Refresh"
+        android:title=""
+        android:icon="@drawable/refresh"
+        app:showAsAction="always" />
+
+</menu>

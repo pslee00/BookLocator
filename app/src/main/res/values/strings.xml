@@ -1,0 +1,116 @@
+<resources>
+    <string name="app_name">Library Book Locator</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_save">Save</string>
+    <string name="action_about">About</string>
+    <string name="action_logout">Logout</string>
+    <string name="AppVersion">1.0.0</string>
+
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
+    <string name="company_name">WAWASAN OPEN UNIVERSITY</string>
+    <string name="strWawasan">WAWASAN OPEN UNIVERSITY</string>
+    <string name="strPoweredBy">Powered by</string>
+    <string name="strStdName">LEE PUNG SIEW\nSTD ID : 041130398</string>
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_main_activity_std">MainActivityStd</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_add_book">AddBook</string>
+    <string name="title_activity_reg_std">RegStd</string>
+    <string name="title_activity_reg_admin">RegAdmin</string>
+    <string name="title_activity_categories">Categories</string>
+
+    <string name="MenuCategory1">REGISTER</string>
+    <string name="TitleMenu1">Student</string>
+    <string name="TitleMenu2">Administrator</string>
+    <string name="TitleMenu3">Book</string>
+    <string name="TitleMenu4">Categories</string>
+
+    <string name="MenuCategory2">MANAGE</string>
+    <string name="TitleMenu5">Student</string>
+    <string name="TitleMenu6">Administrator</string>
+    <string name="TitleMenu7">Book</string>
+    <string name="TitleMenu8">Categories</string>
+    <string name="TitleMenu9">Reservation</string>
+    <string name="TitleMenu10">Canceled Reservation</string>
+
+    <string name="MenuStdCategory1">REGISTER</string>
+    <string name="TitleStdMenu1">Book Reservation</string>
+    <string name="TitleStdMenu2"></string>
+    <string name="TitleStdMenu3"></string>
+    <string name="TitleStdMenu4"></string>
+
+    <string name="MenuStdCategory2">MANAGE</string>
+    <string name="TitleStdMenu5">Book Reservation</string>
+    <string name="TitleStdMenu6">Reservation Records</string>
+    <string name="TitleStdMenu7">Cancelled Records</string>
+    <string name="TitleStdMenu8"></string>
+    <string name="TitleStdMenu9"></string>
+    <string name="TitleStdMenu10"></string>
+
+    <string name="title_activity_manage_std">ManageStd</string>
+    <string name="title_activity_manage_admin">ManageAdmin</string>
+    <string name="title_activity_manage_book">ManageBook</string>
+    <string name="title_activity_manage_category">ManageCategory</string>
+
+    <string name="dbserver">http://www.ragfilsc.com/wawasan/</string>
+
+    <string name="login">lblloclogin.php</string>
+    <string name="admincategory">lblloccategory.php</string>
+    <string name="adminregstd">lbllocregstd.php</string>
+    <string name="adminregadmin">lbllocregadmin.php</string>
+    <string name="adminregbook">lbllocregbook.php</string>
+
+    <string name="adminviewstd">lbllocliststd.php</string>
+    <string name="adminviewadmin">lblloclistadmin.php</string>
+    <string name="adminviewbook">lblloclistbook.php</string>
+    <string name="adminviewcategory">lblloclistcategory.php</string>
+
+    <string name="adminsearchstd">lbllocsearchstd.php</string>
+    <string name="adminsearchadmin">lbllocsearchadmin.php</string>
+    <string name="adminsearchbook">lbllocsearchbook.php</string>
+    <string name="adminsearchcategory">lbllocsearchcategory.php</string>
+
+    <string name="admineditstd">lblloceditstd.php</string>
+    <string name="admineditadmin">lblloceditadmin.php</string>
+    <string name="admineditbook">lblloceditbook.php</string>
+    <string name="admineditcategory">lblloceditcategory.php</string>
+
+    <string name="adminupdatestd">lbllocupdatestd.php</string>
+    <string name="adminupdateadmin">lbllocupdateadmin.php</string>
+    <string name="adminupdatebook">lbllocupdatebook.php</string>
+    <string name="adminupdatecategory">lbllocupdatecategory.php</string>
+    <string name="adminviewcalreservation">lbllocadminviewcanreservation.php</string>
+
+    <string name="admindeletestd">lbllocdeletestd.php</string>
+    <string name="admindeleteadmin">lbllocdeleteadmin.php</string>
+    <string name="admindeletebook">lbllocdeletebook.php</string>
+    <string name="admindeletecategory">lbllocdeletecategory.php</string>
+
+    <string name="adminbindcategory">lblloclistcategory.php</string>
+    <string name="adminviewreservation">lbllocadminviewreservation.php</string>
+
+    <string name="stdresbook">lbllocresbook.php</string>
+    <string name="stdviewreservation">lbllocstdviewreservation.php</string>
+    <string name="stdcancelreservation">lbllocstdcanreservation.php</string>
+    <string name="stddelreservation">lbllocstddelreservation.php</string>
+    <string name="stdviewcancelreservation">lbllocstdviewcanreservation.php</string>
+    <string name="stdsearchcancelreservation">lbllocstdsearchcanreservation.php</string>
+    <string name="stdsearchreservation">lbllocstdsearchreservation.php</string>
+
+    <string name="title_activity_edit_categories">EditCategories</string>
+    <string name="title_activity_edit_student">EditStudent</string>
+    <string name="title_activity_edit_admin">EditAdmin</string>
+    <string name="title_activity_edit_book">EditBook</string>
+    <string name="title_activity_std_reservation">std_reservation</string>
+    <string name="title_activity_std_manage_reservation">std_manage_reservation</string>
+    <string name="title_activity_std_histroy">std_histroy</string>
+    <string name="title_activity_std__view_book_info">std_View_bookInfo</string>
+    <string name="title_activity_std_view_book">stdViewBook</string>
+    <string name="title_activity_reservation">Reservation</string>
+    <string name="title_activity_std_cancelled_reservation">stdCancelledReservation</string>
+    <string name="title_activity_canceleld_reservation">CanceleldReservation</string>
+
+</resources>

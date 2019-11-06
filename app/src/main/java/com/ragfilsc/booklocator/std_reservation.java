@@ -1,0 +1,387 @@
+package com.ragfilsc.booklocator;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.AsyncTask;
+import android.os.StrictMode;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.text.Html;
+import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import org.apache.http.client.HttpClient;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.params.HttpParams;
+import org.json.JSONException;
+
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
+
+
+public class std_reservation extends ActionBarActivity {
+
+    public boolean start;
+    Timer timer;
+    MyTimerTask myTimerTask;
+    String StatusRegister;
+
+    String id;
+
+    String ipAddress;
+    String line=null;
+    String result=null;
+    InputStream is=null;
+    int i;
+
+    Boolean FlagTimeout;
+    String ErrMsg;
+
+    int IndexCount;
+    List dbRecords = new ArrayList();
+    int TotalRecords;
+
+    Boolean SearchRecords;
+    String search_string;
+
+    EditText editText;
+
+    ListView listView;
+
+    String SelectedIndex;
+    String SelectedCategory;
+
+    Boolean DeleteFlag;
+    Boolean ReserveBookFlag;
+    Boolean RefreshFlag;
+
+    String LoginUserID;
+    String LoginUserName;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_std_reservation);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        ActionBar actionBar = getSupportActionBar();
+
+        actionBar.setTitle((Html.fromHtml("<font color=\"#FFFFFF\">" + "Book Reservation")));
+
+        LoginUserID = (String) getIntent().getStringExtra("LOGINID");
+        LoginUserName = (String) getIntent().getStringExtra("LOGINUSERNAME");
+
+        StrictMode.enableDefaults();
+
+        SelectedIndex="";
+        SearchRecords = false;
+        ReserveBookFlag=false;
+        RefreshFlag=false;
+        DeleteFlag=false;
+        start = true;
+        timer = new Timer();
+        myTimerTask = new MyTimerTask();
+        timer.schedule(myTimerTask, 100);
+
+        editText = (EditText) findViewById(R.id.txtSearch);
+
+        editText.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_SEARCH) {
+
+                    SearchRecords = true;
+
+                    search_string = editText.getText().toString();
+
+                    start = true;
+                    timer = new Timer();
+                    myTimerTask = new MyTimerTask();
+                    timer.schedule(myTimerTask, 100);
+
+                }
+
+                return false;
+            }
+        });
+
+        listView = (ListView) findViewById(R.id.lstCategory);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                String text = String.valueOf(listView.getItemAtPosition(position));
+
+                String[] strChop = text.split(" - ");
+
+                SelectedIndex = strChop[0].toString();
+                SelectedCategory = strChop[1].toString();
+
+            }
+        });
+    }
+
+    class MyTimerTask extends TimerTask {
+
+        @Override
+        public void run() {
+
+            runOnUiThread(new Runnable(){
+
+                @Override
+                public void run() {
+
+                    ConnectivityManager cManager = (ConnectivityManager) getSystemService(std_reservation.this.CONNECTIVITY_SERVICE);
+                    NetworkInfo nInfo = cManager.getActiveNetworkInfo();
+
+                    if (nInfo != null && nInfo.isConnected())
+                    {
+                        //pBar.setVisibility(View.VISIBLE);
+                        start = true;
+                        if (SearchRecords == true)
+                        {
+                            ipAddress =  getString(R.string.dbserver).toString() + getString(R.string.adminsearchbook).toString() + "?search_string=" + search_string;
+                        }
+                        else if (ReserveBookFlag==true)
+                        {
+                            String strStdId;
+                            String strStdUName;
+
+                            strStdId = LoginUserID.toString();
+                            strStdUName = LoginUserName.toString();
+                            ipAddress = getString(R.string.dbserver).toString() + getString(R.string.stdresbook).toString() + "?strBookIndex=" + SelectedIndex + "&strBookTitle=" + SelectedCategory + "&strUserID=" + strStdId + "&strUserName=" + strStdUName;
+
+                        }
+                        else
+                        {
+                            ipAddress =  getString(R.string.dbserver).toString() + getString(R.string.adminviewbook).toString() ;
+                        }
+
+
+                        getJSON(ipAddress);
+                        start = false;
+
+                        timer.cancel();
+                    }
+                    else
+
+                    {
+                        //pBar.setVisibility(View.GONE);
+                        Toast.makeText(std_reservation.this, "Connect to Wi-Fi Internet network or turn on Mobile Data.", Toast.LENGTH_SHORT).show();
+                        start = false;
+                    }
+                }});
+        }
+
+    }
+
+    private void getJSON(final String urlWebService) {
+
+        class GetJSON extends AsyncTask<Void, Void, String> {
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                try {
+                    ChoppingData(s);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                try {
+                    FlagTimeout=false;
+                    ErrMsg="";
+                    URL url = new URL(urlWebService);
+                    HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                    con.setConnectTimeout(15000);
+
+                    HttpClient httpclient = new DefaultHttpClient();
+                    HttpParams params = httpclient.getParams();
+
+                    StringBuilder sb = new StringBuilder();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                    String json;
+                    IndexCount =0;
+                    Integer i=0;
+                    dbRecords.clear();
+
+                    while ((json = bufferedReader.readLine()) != null) {
+                        sb.append(json + "\n");
+                        dbRecords.add(i, json);
+                        i=i+1;
+                    }
+
+                    TotalRecords=i;
+                    return sb.toString().trim();
+
+                } catch (java.net.SocketTimeoutException e) {
+                    FlagTimeout=true;
+                    return null;
+                }
+                catch (Exception e) {
+                    ErrMsg=e.toString();
+                    return null;
+                }
+            }
+        }
+        GetJSON getJSON = new GetJSON();
+        getJSON.execute();
+    }
+
+    private void ChoppingData(String json) throws JSONException {
+        Integer ttlRecRceived;
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(std_reservation.this, android.R.layout.simple_spinner_item, dbRecords);
+
+        if (SearchRecords == true)
+        {
+
+        }
+        else if (ReserveBookFlag==true)
+        {
+            StatusRegister = adapter.getItem(0).toString();
+
+            if (StatusRegister.equals("Reservation Successfully!"))
+            {
+                Toast.makeText(std_reservation.this, StatusRegister, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(std_reservation.this, StatusRegister, Toast.LENGTH_SHORT).show();
+            }
+            ReserveBookFlag=false;
+        }
+        else {
+            ListView listView = (ListView) findViewById(R.id.lstCategory);
+            listView.setAdapter(adapter);
+
+            editText.setText("");
+        }
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_std_reservation, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+
+            case R.id.view:
+
+
+                if (SelectedIndex.isEmpty()==true)
+                {
+                    Toast.makeText(getApplicationContext(), "No record selected for view!", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Intent intent = new Intent(std_reservation.this, stdViewBook.class);
+                    intent.putExtra("Index", SelectedIndex.toString());
+                    intent.putExtra("LOGINID", LoginUserID.toString());
+                    intent.putExtra("LOGINUSERNAME", LoginUserName.toString());
+                    startActivity(intent);
+                }
+
+                return true;
+
+            case R.id.reserve:
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setCancelable(false);
+                builder.setMessage("Reserve " + SelectedCategory.toString() + " book ? ");
+                builder.setPositiveButton("YES, I AM SURE", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        StrictMode.enableDefaults();
+
+                        ReserveBookFlag = true;
+                        SearchRecords = false;
+                        DeleteFlag = false;
+
+                        start = true;
+                        timer = new Timer();
+                        myTimerTask = new MyTimerTask();
+                        timer.schedule(myTimerTask, 100);
+
+                    }
+                });
+                builder.setNegativeButton("CANCEL", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //if user select "No", just cancel this dialog and continue with app
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog alert = builder.create();
+                alert.show();
+
+                return true;
+
+            case R.id.Refresh:
+
+                EditText ExitText = (EditText) findViewById(R.id.txtSearch);
+
+                ExitText.setText("");
+
+                Toast.makeText(getApplicationContext(), "Refresh record(s) in progress....!", Toast.LENGTH_SHORT).show();
+
+                StrictMode.enableDefaults();
+
+                ReserveBookFlag = false;
+                SearchRecords = false;
+                DeleteFlag=false;
+                RefreshFlag = true;
+                start = true;
+                timer = new Timer();
+                myTimerTask = new MyTimerTask();
+                timer.schedule(myTimerTask, 100);
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

@@ -1,0 +1,246 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.ragfilsc.booklocator.stdViewBook"
+    android:background="#EEEEEE">
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:background="#FFF"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/lblCaption01"
+                android:text="Index :"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtIndex"
+                android:text=""
+                android:layout_below="@+id/lblCaption01"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption02"
+                android:text="Title :"
+                android:layout_below="@+id/txtIndex"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtTitle"
+                android:text=""
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption02"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption03"
+                android:text="Publisher :"
+                android:layout_below="@+id/txtTitle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtPublisher"
+                android:text=""
+                android:editable="false"
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption03"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption04"
+                android:text="ISBN Number :"
+                android:layout_below="@+id/txtPublisher"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtISBN"
+                android:text=""
+                android:numeric="integer"
+                android:layout_below="@+id/lblCaption04"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption05"
+                android:text="Author :"
+                android:layout_below="@+id/txtISBN"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtAuthor"
+                android:text=""
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption05"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption06"
+                android:text="Published Date :"
+                android:layout_below="@+id/txtAuthor"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtPubDate"
+                android:text=""
+                android:layout_below="@+id/lblCaption06"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption07"
+                android:text="Page Numbers :"
+                android:layout_below="@+id/txtPubDate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtPageNumbers"
+                android:text=""
+                android:numeric="integer"
+                android:layout_below="@+id/lblCaption07"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption08"
+                android:text="Language :"
+                android:layout_below="@+id/txtPageNumbers"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtLanguage"
+                android:text=""
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption08"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption09"
+                android:text="Series :"
+                android:layout_below="@+id/txtLanguage"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtSeries"
+                android:text=""
+                android:numeric="integer"
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption09"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption10"
+                android:text="Volume :"
+                android:layout_below="@+id/txtSeries"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtVol"
+                android:text=""
+                android:numeric="integer"
+                android:layout_below="@+id/lblCaption10"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption11"
+                android:text="Price (RM) :"
+                android:layout_below="@+id/txtVol"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtPrice"
+                android:text=""
+                android:numeric="decimal"
+                android:layout_below="@+id/lblCaption11"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption12"
+                android:text="Category :"
+                android:layout_below="@+id/txtPrice"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtCategory"
+                android:text=""
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption12"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/lblCaption13"
+                android:text="Summary :"
+                android:layout_below="@+id/txtCategory"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/txtSummary"
+                android:text=""
+                android:inputType="textCapWords"
+                android:layout_below="@+id/lblCaption13"
+                android:layout_width="fill_parent"
+                android:paddingBottom="10dp"
+                android:textColor="#000"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

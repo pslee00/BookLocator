@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.ragfilsc.booklocator.MainActivityStd"
+    android:background="#FFF">
+
+    <ImageView
+        android:id="@+id/Logo"
+        android:paddingTop="0dp"
+        android:paddingBottom="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/iconnew"
+        />
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:background="#FFF"
+        android:layout_below="@+id/Logo"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:background="#FFF"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/MenuCat1"
+                android:text="@string/MenuStdCategory1"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:background="#8DC73F"
+                android:layout_below="@+id/scrollView1"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator0"
+                android:layout_below="@+id/MenuCat1"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu1"
+                android:text="@string/TitleStdMenu1"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator0"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator1"
+                android:layout_below="@+id/btnMenu1"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <TextView
+                android:id="@+id/MenuCat2"
+                android:text="@string/MenuStdCategory2"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textStyle="bold"
+                android:paddingBottom="10dp"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:textColor="#000"
+                android:layout_width="fill_parent"
+                android:gravity="center"
+                android:background="#8DC73F"
+                android:layout_below="@+id/Separator1"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator01"
+                android:layout_below="@+id/MenuCat2"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu2"
+                android:text="@string/TitleStdMenu5"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator01"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator3"
+                android:layout_below="@+id/btnMenu2"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu3"
+                android:text="@string/TitleStdMenu6"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+            <View
+                android:id="@+id/Separator4"
+                android:layout_below="@+id/btnMenu3"
+                android:layout_width="fill_parent"
+                android:layout_height="5dp"/>
+
+            <Button
+                android:id="@+id/btnMenu4"
+                android:text="@string/TitleStdMenu7"
+                android:background="#076543"
+                android:textColor="#FFF"
+                android:textAllCaps="false"
+                android:layout_below="@+id/Separator3"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
